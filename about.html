@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us | Xiviri Trading & Projects</title>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap"
+                rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+        <style>
+                *,
+                *::before,
+                *::after {
+                        box-sizing: border-box;
+                        margin: 0;
+                        padding: 0
+                }
+
+                :root {
+                        --orange: #E8820C;
+                        --orange-dark: #C46A08;
+                        --orange-light: #F5A83A;
+                        --black: #0D0D0D;
+                        --dark: #141414;
+                        --dark2: #1E1E1E;
+                        --dark3: #252525;
+                        --gray: #888;
+                        --white: #FFFFFF;
+                        --font-head: 'Oswald', sans-serif;
+                        --font-body: 'Source Sans 3', sans-serif;
+                        --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                }
+
+                html {
+                        scroll-behavior: smooth
+                }
+
+                body {
+                        font-family: var(--font-body);
+                        background: var(--black);
+                        color: var(--white);
+                        overflow-x: hidden
+                }
+
+                ::-webkit-scrollbar {
+                        width: 4px
+                }
+
+                ::-webkit-scrollbar-track {
+                        background: var(--black)
+                }
+
+                ::-webkit-scrollbar-thumb {
+                        background: var(--orange)
+                }
+
+                nav {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        z-index: 1000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 0 5%;
+                        height: 72px;
+                        background: rgba(13, 13, 13, 0.15);
+                        backdrop-filter: blur(20px);
+                        border-bottom: 1px solid rgba(232, 130, 12, 0.15);
+                        transition: var(--transition)
+                }
+
+                nav.scrolled {
+                        background: rgba(13, 13, 13, 0.97);
+                        border-color: rgba(232, 130, 12, 0.3)
+                }
+
+                .nav-logo {
+                        font-family: var(--font-head);
+                        font-size: 1.7rem;
+                        font-weight: 700;
+                        color: var(--orange);
+                        letter-spacing: 3px;
+                        text-decoration: none;
+                        display: flex;
+                        flex-direction: column;
+                        line-height: 1
+                }
+
+                .nav-logo small {
+                        font-size: 0.42rem;
+                        color: rgba(255, 255, 255, 0.4);
+                        letter-spacing: 5px;
+                        font-family: var(--font-body);
+                        font-weight: 300;
+                        margin-top: 4px;
+                        text-transform: uppercase
+                }
+
+                .nav-links {
+                        display: flex;
+                        gap: 0;
+                        list-style: none
+                }
+
+                .nav-links a {
+                        color: rgba(255, 255, 255, 0.75);
+                        text-decoration: none;
+                        font-family: var(--font-body);
+                        font-size: 0.82rem;
+                        letter-spacing: 1.5px;
+                        text-transform: uppercase;
+                        padding: 0.4rem 1rem;
+                        transition: color 0.3s;
+                        position: relative
+                }
+
+                .nav-links a::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -1px;
+                        left: 1rem;
+                        right: 1rem;
+                        height: 2px;
+                        background: var(--orange);
+                        transform: scaleX(0);
+                        transition: transform 0.3s
+                }
+
+                .nav-links a:hover {
+                        color: var(--white)
+                }
+
+                .nav-links a:hover::after,
+                .nav-links a.active::after {
+                        transform: scaleX(1)
+                }
+
+                .nav-links a.active {
+                        color: var(--white)
+                }
+
+                .nav-cta {
+                        background: var(--orange);
+                        color: var(--white);
+                        padding: 0.55rem 1.5rem;
+                        font-family: var(--font-head);
+                        font-size: 0.82rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        transition: var(--transition);
+                        clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+                        white-space: nowrap
+                }
+
+                .nav-cta:hover {
+                        background: var(--orange-dark)
+                }
+
+                .hamburger {
+                        display: none;
+                        flex-direction: column;
+                        gap: 5px;
+                        cursor: pointer;
+                        background: none;
+                        border: none;
+                        padding: 4px
+                }
+
+                .hamburger span {
+                        display: block;
+                        width: 24px;
+                        height: 2px;
+                        background: var(--white);
+                        transition: all 0.3s
+                }
+
+                .hamburger.open span:nth-child(1) {
+                        transform: translateY(7px) rotate(45deg)
+                }
+
+                .hamburger.open span:nth-child(2) {
+                        opacity: 0
+                }
+
+                .hamburger.open span:nth-child(3) {
+                        transform: translateY(-7px) rotate(-45deg)
+                }
+
+                .mobile-menu {
+                        display: none;
+                        position: fixed;
+                        top: 72px;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(13, 13, 13, 0.99);
+                        backdrop-filter: blur(30px);
+                        padding: 3rem 5%;
+                        z-index: 999;
+                        flex-direction: column;
+                        gap: 0
+                }
+
+                .mobile-menu.open {
+                        display: flex
+                }
+
+                .mobile-menu a {
+                        color: rgba(255, 255, 255, 0.8);
+                        text-decoration: none;
+                        font-family: var(--font-head);
+                        font-size: 1.6rem;
+                        letter-spacing: 3px;
+                        text-transform: uppercase;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                        padding: 1.2rem 0;
+                        transition: color 0.3s;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.75rem
+                }
+
+                .mobile-menu a:hover {
+                        color: var(--orange)
+                }
+
+                .reveal {
+                        opacity: 0;
+                        transform: translateY(50px);
+                        transition: opacity 0.7s ease, transform 0.7s ease
+                }
+
+                .reveal.left {
+                        transform: translateX(-50px)
+                }
+
+                .reveal.right {
+                        transform: translateX(50px)
+                }
+
+                .reveal.scale {
+                        transform: scale(0.92)
+                }
+
+                .reveal.visible {
+                        opacity: 1;
+                        transform: none
+                }
+
+                .section-label {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        font-size: 0.72rem;
+                        letter-spacing: 4px;
+                        text-transform: uppercase;
+                        color: var(--orange);
+                        margin-bottom: 0.75rem
+                }
+
+                .section-label::before {
+                        content: '';
+                        width: 30px;
+                        height: 1px;
+                        background: var(--orange)
+                }
+
+                .section-title {
+                        font-family: var(--font-head);
+                        font-size: clamp(2rem, 4vw, 3.2rem);
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        line-height: 1.05;
+                        margin-bottom: 1.5rem
+                }
+
+                .section-title span {
+                        color: var(--orange)
+                }
+
+                .btn-primary {
+                        background: var(--orange);
+                        color: var(--white);
+                        padding: 0.9rem 2.2rem;
+                        font-family: var(--font-head);
+                        font-size: 0.95rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        border: none;
+                        cursor: pointer;
+                        transition: var(--transition);
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.6rem;
+                        clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)
+                }
+
+                .btn-primary:hover {
+                        background: var(--orange-dark);
+                        transform: translateY(-3px)
+                }
+
+                .btn-outline {
+                        background: transparent;
+                        color: var(--white);
+                        padding: 0.9rem 2.2rem;
+                        font-family: var(--font-head);
+                        font-size: 0.95rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                        cursor: pointer;
+                        transition: var(--transition);
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.6rem
+                }
+
+                .btn-outline:hover {
+                        border-color: var(--orange);
+                        color: var(--orange);
+                        transform: translateY(-3px)
+                }
+
+                /* PAGE HERO */
+                .page-hero {
+                        min-height: 55vh;
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        overflow: hidden;
+                        padding-top: 72px;
+                        background: var(--dark);
+                }
+
+                .page-hero-bg {
+                        position: absolute;
+                        inset: 0;
+                        background: url('image/TRUCKS_IMAGE.jpg') center/cover no-repeat;
+                        opacity: 0.7;
+                        transform: scale(1.05)
+                }
+
+                .page-hero-overlay {
+                        position: absolute;
+                        inset: 0;
+                        background: linear-gradient(180deg, rgba(13, 13, 13, 0.5) 0%, var(--dark) 100%)
+                }
+
+                .page-hero-content {
+                        position: relative;
+                        z-index: 2;
+                        padding: 4rem 5%
+                }
+
+                .page-breadcrumb {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        margin-bottom: 1.5rem;
+                        font-size: 0.78rem;
+                        color: rgba(255, 255, 255, 0.4);
+                        text-transform: uppercase;
+                        letter-spacing: 2px
+                }
+
+                .page-breadcrumb a {
+                        color: rgba(255, 255, 255, 0.4);
+                        text-decoration: none;
+                        transition: color 0.3s
+                }
+
+                .page-breadcrumb a:hover {
+                        color: var(--orange)
+                }
+
+                .page-breadcrumb i {
+                        font-size: 0.7rem
+                }
+
+                .page-hero h1 {
+                        font-family: var(--font-head);
+                        font-size: clamp(2.5rem, 6vw, 5rem);
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        line-height: 1
+                }
+
+                .page-hero h1 span {
+                        color: var(--orange)
+                }
+
+                .page-hero-line {
+                        width: 80px;
+                        height: 3px;
+                        background: var(--orange);
+                        margin-top: 1.5rem
+                }
+
+                /* ABOUT INTRO */
+                .about-intro {
+                        background: var(--dark);
+                        padding: 7rem 5%
+                }
+
+                .about-intro-grid {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 6rem;
+                        align-items: center
+                }
+
+                .about-images-stack {
+                        position: relative;
+                        height: 550px
+                }
+
+                .img-main {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 72%;
+                        height: 78%;
+                        object-fit: cover;
+                        display: block
+                }
+
+                .img-accent {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        width: 55%;
+                        height: 55%;
+                        object-fit: cover;
+                        border: 5px solid var(--dark);
+                        display: block
+                }
+
+                .img-badge {
+                        position: absolute;
+                        top: 55%;
+                        left: 52%;
+                        transform: translate(-50%, -50%);
+                        background: var(--orange);
+                        width: 120px;
+                        height: 120px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 3;
+                }
+
+                .img-badge strong {
+                        font-family: var(--font-head);
+                        font-size: 2.5rem;
+                        color: var(--white);
+                        line-height: 1
+                }
+
+                .img-badge span {
+                        font-size: 0.55rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        color: rgba(255, 255, 255, 0.85)
+                }
+
+                .about-intro p {
+                        color: rgba(255, 255, 255, 0.65);
+                        line-height: 1.85;
+                        margin-bottom: 1.25rem;
+                        font-weight: 300
+                }
+
+                .about-tags {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 0.5rem;
+                        margin: 1.5rem 0
+                }
+
+                .about-tag {
+                        background: rgba(232, 130, 12, 0.1);
+                        border: 1px solid rgba(232, 130, 12, 0.25);
+                        color: var(--orange-light);
+                        font-size: 0.75rem;
+                        letter-spacing: 1.5px;
+                        text-transform: uppercase;
+                        padding: 0.35rem 0.85rem;
+                }
+
+                /* MISSION / VISION */
+                .mv-section {
+                        background: var(--black);
+                        padding: 7rem 5%
+                }
+
+                .mv-grid {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr;
+                        gap: 1px;
+                        background: rgba(255, 255, 255, 0.05);
+                        margin-top: 3.5rem
+                }
+
+                .mv-card {
+                        background: var(--black);
+                        padding: 3rem 2rem;
+                        text-align: center;
+                        position: relative;
+                        overflow: hidden;
+                        transition: background 0.35s;
+                }
+
+                .mv-card::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        height: 2px;
+                        background: var(--orange);
+                        transform: scaleX(0);
+                        transition: transform 0.4s
+                }
+
+                .mv-card:hover {
+                        background: var(--dark2)
+                }
+
+                .mv-card:hover::after {
+                        transform: scaleX(1)
+                }
+
+                .mv-icon {
+                        width: 64px;
+                        height: 64px;
+                        background: rgba(232, 130, 12, 0.1);
+                        border: 1px solid rgba(232, 130, 12, 0.2);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0 auto 1.5rem;
+                        transition: all 0.35s
+                }
+
+                .mv-icon i {
+                        color: var(--orange);
+                        font-size: 1.6rem
+                }
+
+                .mv-card:hover .mv-icon {
+                        background: rgba(232, 130, 12, 0.2);
+                        border-color: var(--orange)
+                }
+
+                .mv-card h3 {
+                        font-family: var(--font-head);
+                        font-size: 1.2rem;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        margin-bottom: 1rem
+                }
+
+                .mv-card p {
+                        color: rgba(255, 255, 255, 0.5);
+                        font-size: 0.88rem;
+                        line-height: 1.75;
+                        font-weight: 300
+                }
+
+                /* TEAM / VALUES */
+                .values-section {
+                        background: var(--dark);
+                        padding: 7rem 5%
+                }
+
+                .values-grid {
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+                        gap: 1.5rem;
+                        margin-top: 3.5rem
+                }
+
+                .value-card {
+                        padding: 2rem;
+                        border: 1px solid rgba(255, 255, 255, 0.06);
+                        transition: all 0.35s;
+                        position: relative;
+                        overflow: hidden;
+                }
+
+                .value-card::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 3px;
+                        height: 0;
+                        background: var(--orange);
+                        transition: height 0.4s
+                }
+
+                .value-card:hover {
+                        border-color: rgba(232, 130, 12, 0.2);
+                        background: rgba(232, 130, 12, 0.04);
+                        transform: translateY(-4px)
+                }
+
+                .value-card:hover::before {
+                        height: 100%
+                }
+
+                .value-card i {
+                        color: var(--orange);
+                        font-size: 1.8rem;
+                        margin-bottom: 1rem;
+                        display: block
+                }
+
+                .value-card h4 {
+                        font-family: var(--font-head);
+                        font-size: 1rem;
+                        text-transform: uppercase;
+                        letter-spacing: 1.5px;
+                        margin-bottom: 0.6rem
+                }
+
+                .value-card p {
+                        color: rgba(255, 255, 255, 0.5);
+                        font-size: 0.83rem;
+                        line-height: 1.65;
+                        font-weight: 300
+                }
+
+                /* TIMELINE */
+                .timeline-section {
+                        background: var(--black);
+                        padding: 7rem 5%
+                }
+
+                .timeline {
+                        position: relative;
+                        margin-top: 4rem
+                }
+
+                .timeline::before {
+                        content: '';
+                        position: absolute;
+                        left: 50%;
+                        top: 0;
+                        bottom: 0;
+                        width: 1px;
+                        background: rgba(255, 255, 255, 0.08);
+                        transform: translateX(-50%)
+                }
+
+                .timeline-item {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 4rem;
+                        margin-bottom: 4rem;
+                        position: relative
+                }
+
+                .timeline-item:nth-child(even) .timeline-content {
+                        grid-column: 2;
+                        text-align: left
+                }
+
+                .timeline-item:nth-child(odd) .timeline-content {
+                        grid-column: 1;
+                        text-align: right
+                }
+
+                .timeline-dot {
+                        position: absolute;
+                        left: 50%;
+                        top: 1rem;
+                        transform: translateX(-50%);
+                        width: 14px;
+                        height: 14px;
+                        background: var(--orange);
+                        border: 3px solid var(--black);
+                        z-index: 2
+                }
+
+                .timeline-content {
+                        padding: 1.5rem;
+                        border: 1px solid rgba(255, 255, 255, 0.06);
+                        background: var(--dark)
+                }
+
+                .timeline-year {
+                        font-family: var(--font-head);
+                        font-size: 0.75rem;
+                        color: var(--orange);
+                        letter-spacing: 3px;
+                        text-transform: uppercase;
+                        margin-bottom: 0.5rem
+                }
+
+                .timeline-content h4 {
+                        font-family: var(--font-head);
+                        font-size: 1.1rem;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        margin-bottom: 0.5rem
+                }
+
+                .timeline-content p {
+                        color: rgba(255, 255, 255, 0.5);
+                        font-size: 0.85rem;
+                        line-height: 1.6;
+                        font-weight: 300
+                }
+
+                /* STATS */
+                .stats-section {
+                        background: var(--orange);
+                        padding: 5rem 5%;
+                        position: relative;
+                        overflow: hidden
+                }
+
+                .stats-section::before {
+                        content: '';
+                        position: absolute;
+                        top: -100px;
+                        right: -100px;
+                        width: 400px;
+                        height: 400px;
+                        border-radius: 50%;
+                        background: rgba(0, 0, 0, 0.1)
+                }
+
+                .stats-grid {
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+                        gap: 2rem;
+                        position: relative;
+                        z-index: 1
+                }
+
+                .stat-item {
+                        text-align: center
+                }
+
+                .stat-num {
+                        font-family: var(--font-head);
+                        font-size: 3.5rem;
+                        font-weight: 700;
+                        line-height: 1;
+                        color: var(--white);
+                        margin-bottom: 0.5rem
+                }
+
+                .stat-label {
+                        font-size: 0.8rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        color: rgba(255, 255, 255, 0.75)
+                }
+
+                .stat-icon {
+                        font-size: 1.5rem;
+                        color: rgba(255, 255, 255, 0.5);
+                        margin-bottom: 0.75rem
+                }
+
+                /* CTA */
+                .cta-section {
+                        background: var(--dark);
+                        padding: 7rem 5%;
+                        text-align: center;
+                        position: relative;
+                        overflow: hidden
+                }
+
+                .cta-section::before {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 600px;
+                        height: 600px;
+                        border-radius: 50%;
+                        background: radial-gradient(circle, rgba(232, 130, 12, 0.07) 0%, transparent 70%);
+                        pointer-events: none
+                }
+
+                .cta-line {
+                        width: 1px;
+                        height: 80px;
+                        background: linear-gradient(180deg, transparent, var(--orange), transparent);
+                        margin: 0 auto 2rem
+                }
+
+                /* FOOTER */
+                footer {
+                        background: var(--dark);
+                        border-top: 1px solid rgba(255, 255, 255, 0.06)
+                }
+
+                .footer-top {
+                        padding: 4rem 5%;
+                        display: grid;
+                        grid-template-columns: 2fr 1fr 1fr 1fr;
+                        gap: 3rem
+                }
+
+                .footer-logo {
+                        font-family: var(--font-head);
+                        font-size: 1.6rem;
+                        color: var(--orange);
+                        letter-spacing: 3px;
+                        margin-bottom: 0.5rem;
+                        display: block
+                }
+
+                .footer-logo small {
+                        display: block;
+                        font-family: var(--font-body);
+                        font-size: 0.55rem;
+                        color: rgba(255, 255, 255, 0.3);
+                        letter-spacing: 4px;
+                        text-transform: uppercase;
+                        margin-top: 3px
+                }
+
+                .footer-brand p {
+                        color: rgba(255, 255, 255, 0.45);
+                        font-size: 0.85rem;
+                        line-height: 1.7;
+                        margin-top: 1rem;
+                        font-weight: 300;
+                        max-width: 280px
+                }
+
+                .footer-socials {
+                        display: flex;
+                        gap: 0.75rem;
+                        margin-top: 1.5rem
+                }
+
+                .social-btn {
+                        width: 36px;
+                        height: 36px;
+                        border: 1px solid rgba(255, 255, 255, 0.12);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: rgba(255, 255, 255, 0.5);
+                        text-decoration: none;
+                        transition: all 0.3s;
+                        font-size: 0.95rem
+                }
+
+                .social-btn:hover {
+                        border-color: var(--orange);
+                        color: var(--orange);
+                        background: rgba(232, 130, 12, 0.1)
+                }
+
+                .footer-col h4 {
+                        font-family: var(--font-head);
+                        font-size: 0.85rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        color: var(--white);
+                        margin-bottom: 1.25rem;
+                        padding-bottom: 0.75rem;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.07)
+                }
+
+                .footer-col ul {
+                        list-style: none;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.6rem
+                }
+
+                .footer-col ul a {
+                        color: rgba(255, 255, 255, 0.45);
+                        text-decoration: none;
+                        font-size: 0.85rem;
+                        transition: color 0.3s;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.4rem
+                }
+
+                .footer-col ul a:hover {
+                        color: var(--orange)
+                }
+
+                .footer-col ul a i {
+                        font-size: 0.75rem;
+                        opacity: 0.5
+                }
+
+                .footer-contact-item {
+                        display: flex;
+                        gap: 0.6rem;
+                        align-items: flex-start;
+                        margin-bottom: 0.75rem
+                }
+
+                .footer-contact-item i {
+                        color: var(--orange);
+                        font-size: 0.95rem;
+                        margin-top: 2px;
+                        flex-shrink: 0
+                }
+
+                .footer-contact-item span {
+                        color: rgba(255, 255, 255, 0.45);
+                        font-size: 0.83rem;
+                        line-height: 1.5
+                }
+
+                .footer-bottom {
+                        padding: 1.25rem 5%;
+                        border-top: 1px solid rgba(255, 255, 255, 0.05);
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 1rem
+                }
+
+                .footer-bottom p {
+                        color: rgba(255, 255, 255, 0.2);
+                        font-size: 0.75rem
+                }
+
+                .footer-bottom-links {
+                        display: flex;
+                        gap: 1.5rem
+                }
+
+                .footer-bottom-links a {
+                        color: rgba(255, 255, 255, 0.2);
+                        font-size: 0.75rem;
+                        text-decoration: none;
+                        transition: color 0.3s
+                }
+
+                .footer-bottom-links a:hover {
+                        color: var(--orange)
+                }
+
+                @media(max-width:1024px) {
+                        .values-grid {
+                                grid-template-columns: repeat(2, 1fr)
+                        }
+
+                        .stats-grid {
+                                grid-template-columns: repeat(2, 1fr)
+                        }
+
+                        .footer-top {
+                                grid-template-columns: 1fr 1fr
+                        }
+
+                        .mv-grid {
+                                grid-template-columns: 1fr
+                        }
+                }
+
+                @media(max-width:768px) {
+                        .about-intro-grid {
+                                grid-template-columns: 1fr;
+                                gap: 3rem
+                        }
+
+                        .about-images-stack {
+                                height: 360px
+                        }
+
+                        .timeline::before {
+                                left: 16px
+                        }
+
+                        .timeline-item {
+                                grid-template-columns: 1fr;
+                                gap: 1rem;
+                                padding-left: 3rem
+                        }
+
+                        .timeline-item:nth-child(even) .timeline-content,
+                        .timeline-item:nth-child(odd) .timeline-content {
+                                grid-column: 1;
+                                text-align: left
+                        }
+
+                        .timeline-dot {
+                                left: 16px
+                        }
+
+                        .nav-links,
+                        .nav-cta {
+                                display: none
+                        }
+
+                        .hamburger {
+                                display: flex
+                        }
+
+                        .footer-top {
+                                grid-template-columns: 1fr
+                        }
+                }
+        </style>
+</head>
+
+<body>
+        <nav id="navbar">
+                <a href="index.html" class="nav-logo">XIVIRI<small>Trading &amp; Projects (Pty) Ltd</small></a>
+                <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html" class="active">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="quote.html" class="nav-cta">Get a Quote</a>
+                <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+                <a href="index.html" onclick="closeMobile()"><i class="ti ti-home"></i>Home</a>
+                <a href="about.html" onclick="closeMobile()"><i class="ti ti-info-circle"></i>About</a>
+                <a href="services.html" onclick="closeMobile()"><i class="ti ti-tool"></i>Services</a>
+                <a href="projects.html" onclick="closeMobile()"><i class="ti ti-building"></i>Projects</a>
+                <a href="contact.html" onclick="closeMobile()"><i class="ti ti-phone"></i>Contact</a>
+                <a href="quote.html" onclick="closeMobile()"><i class="ti ti-file-text"></i>Get a Quote</a>
+        </div>
+
+        <div class="page-hero">
+                <div class="page-hero-bg"></div>
+                <div class="page-hero-overlay"></div>
+                <div class="page-hero-content">
+                        <div class="page-breadcrumb"><a href="index.html">Home</a><i
+                                        class="ti ti-chevron-right"></i><span>About Us</span></div>
+                        <h1>About <span>Xiviri</span></h1>
+                        <div class="page-hero-line"></div>
+                </div>
+        </div>
+
+        <section class="about-intro">
+                <div class="about-intro-grid">
+                        <div class="about-images-stack reveal left">
+                                <img class="img-main" src="image/BLOCKS_IMAGE.jpg" alt="Xiviri block manufacturing">
+                                <img class="img-accent" src="image/PAVING_IMAGE_BASE64.jpeg" alt="Xiviri paving">
+                                <div class="img-badge"><strong>8+</strong><span>Years</span></div>
+                        </div>
+                        <div class="reveal right">
+                                <div class="section-label">Our Story</div>
+                                <h2 class="section-title">Built from the <span>Ground Up</span></h2>
+                                <p>Xiviri Trading and Projects (Pty) Ltd was founded in 2016 in Hluvukani,
+                                        Bushbuckridge, Mpumalanga, with a clear vision — to provide quality construction
+                                        materials and reliable project execution to communities and businesses across
+                                        the region.</p>
+                                <p>What started as a small sand and gravel supply operation has grown into a
+                                        fully-fledged construction and supply company, with our own fleet of heavy-duty
+                                        trucks, excavators, TLBs and brick manufacturing facilities.</p>
+                                <p>We are proudly South African, BEE compliant, and deeply rooted in the communities we
+                                        serve. Every project we take on is a commitment to quality, reliability and
+                                        local economic development.</p>
+                                <div class="about-tags">
+                                        <span class="about-tag"><i class="ti ti-certificate"></i> CIDB Registered</span>
+                                        <span class="about-tag"><i class="ti ti-flag"></i> BEE Compliant</span>
+                                        <span class="about-tag"><i class="ti ti-shield-check"></i> Est. 2016</span>
+                                        <span class="about-tag"><i class="ti ti-map-pin"></i> Mpumalanga</span>
+                                </div>
+                                <a href="quote.html" class="btn-primary"><i class="ti ti-file-invoice"></i> Get a Free
+                                        Quote</a>
+                        </div>
+                </div>
+        </section>
+
+        <section class="mv-section">
+                <div class="section-label reveal">Our Foundation</div>
+                <h2 class="section-title reveal">Mission, Vision &amp; <span>Values</span></h2>
+                <div class="mv-grid">
+                        <div class="mv-card reveal scale">
+                                <div class="mv-icon"><i class="ti ti-target"></i></div>
+                                <h3>Our Mission</h3>
+                                <p>To deliver quality construction materials and reliable project execution to clients
+                                        across Mpumalanga, creating lasting value for communities through professional
+                                        service and local expertise.</p>
+                        </div>
+                        <div class="mv-card reveal scale">
+                                <div class="mv-icon"><i class="ti ti-eye"></i></div>
+                                <h3>Our Vision</h3>
+                                <p>To be the leading construction and supply company in Mpumalanga — recognised for our
+                                        quality, reliability and commitment to empowering local communities through
+                                        construction excellence.</p>
+                        </div>
+                        <div class="mv-card reveal scale">
+                                <div class="mv-icon"><i class="ti ti-heart"></i></div>
+                                <h3>Our Promise</h3>
+                                <p>Every project receives our full commitment — from the first quote to the final
+                                        delivery. We stand behind the quality of every brick, truckload and earthworks
+                                        contract we undertake.</p>
+                        </div>
+                </div>
+        </section>
+
+        <section class="values-section">
+                <div class="section-label reveal">What Drives Us</div>
+                <h2 class="section-title reveal">Our Core <span>Values</span></h2>
+                <div class="values-grid">
+                        <div class="value-card reveal scale">
+                                <i class="ti ti-shield-check"></i>
+                                <h4>Quality</h4>
+                                <p>We manufacture and deliver materials that meet South African standards, every time,
+                                        without compromise.</p>
+                        </div>
+                        <div class="value-card reveal scale">
+                                <i class="ti ti-clock"></i>
+                                <h4>Reliability</h4>
+                                <p>We show up on time, deliver what we promise, and keep our clients informed every step
+                                        of the way.</p>
+                        </div>
+                        <div class="value-card reveal scale">
+                                <i class="ti ti-users"></i>
+                                <h4>Community</h4>
+                                <p>We are rooted in Hluvukani and committed to creating jobs and growing the local
+                                        economy through every project.</p>
+                        </div>
+                        <div class="value-card reveal scale">
+                                <i class="ti ti-trending-up"></i>
+                                <h4>Growth</h4>
+                                <p>We continually invest in our fleet, our people and our facilities to serve our
+                                        clients better each year.</p>
+                        </div>
+                </div>
+        </section>
+
+        <section class="timeline-section">
+                <div class="section-label reveal">Our Journey</div>
+                <h2 class="section-title reveal">Company <span>Timeline</span></h2>
+                <div class="timeline">
+                        <div class="timeline-item reveal">
+                                <div class="timeline-content">
+                                        <div class="timeline-year">2016</div>
+                                        <h4>Company Founded</h4>
+                                        <p>Xiviri Trading and Projects (Pty) Ltd is registered and begins operations
+                                                supplying sand and gravel in Hluvukani.</p>
+                                </div>
+                                <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-item reveal">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                        <div class="timeline-year">2018</div>
+                                        <h4>Fleet Expansion</h4>
+                                        <p>Invested in our first fleet of dump trucks, enabling us to provide full
+                                                material haulage services to clients across Bushbuckridge.</p>
+                                </div>
+                        </div>
+                        <div class="timeline-item reveal">
+                                <div class="timeline-content">
+                                        <div class="timeline-year">2020</div>
+                                        <h4>Brick Manufacturing Launched</h4>
+                                        <p>Opened our own brick and block manufacturing facility, producing concrete
+                                                bricks, hollow blocks and paving bricks on site.</p>
+                                </div>
+                                <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-item reveal">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                        <div class="timeline-year">2022</div>
+                                        <h4>Heavy Machinery Acquired</h4>
+                                        <p>Added CAT excavators and TLBs to our fleet, expanding our capability into
+                                                full earthworks and excavation contracts.</p>
+                                </div>
+                        </div>
+                        <div class="timeline-item reveal">
+                                <div class="timeline-content">
+                                        <div class="timeline-year">2024</div>
+                                        <h4>Growing Strong</h4>
+                                        <p>Operating 10+ vehicles and machines with a team of 30+ dedicated
+                                                professionals, serving clients across Mpumalanga and beyond.</p>
+                                </div>
+                                <div class="timeline-dot"></div>
+                        </div>
+                </div>
+        </section>
+
+        <div class="stats-section">
+                <div class="stats-grid">
+                        <div class="stat-item reveal"><i class="ti ti-calendar-stats stat-icon"></i>
+                                <div class="stat-num" data-target="8">0</div>
+                                <div class="stat-label">Years Operating</div>
+                        </div>
+                        <div class="stat-item reveal"><i class="ti ti-truck stat-icon"></i>
+                                <div class="stat-num" data-target="10">0</div>
+                                <div class="stat-label">Trucks &amp; Machines</div>
+                        </div>
+                        <div class="stat-item reveal"><i class="ti ti-building-community stat-icon"></i>
+                                <div class="stat-num" data-target="50">0</div>
+                                <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item reveal"><i class="ti ti-users stat-icon"></i>
+                                <div class="stat-num" data-target="30">0</div>
+                                <div class="stat-label">Team Members</div>
+                        </div>
+                </div>
+        </div>
+
+        <section class="cta-section">
+                <div class="cta-line"></div>
+                <div class="section-label reveal" style="justify-content:center">Work With Us</div>
+                <h2 class="section-title reveal" style="text-align:center">Let's Build <span>Together</span></h2>
+                <p class="reveal"
+                        style="color:rgba(255,255,255,0.6);max-width:500px;margin:0 auto 2.5rem;font-weight:300;line-height:1.8">
+                        Whether you need materials delivered or a full construction project managed, the Xiviri team is
+                        ready to help.</p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal">
+                        <a href="quote.html" class="btn-primary"><i class="ti ti-file-invoice"></i> Get a Free Quote</a>
+                        <a href="contact.html" class="btn-outline"><i class="ti ti-phone"></i> Contact Us</a>
+                </div>
+        </section>
+
+        <footer>
+                <div class="footer-top">
+                        <div class="footer-brand">
+                                <span class="footer-logo">XIVIRI<small>Trading &amp; Projects (Pty) Ltd</small></span>
+                                <p>A proudly South African construction and supply company based in Hluvukani,
+                                        Mpumalanga, serving clients across the region since 2016.</p>
+                                <div class="footer-socials">
+                                        <a href="#" class="social-btn"><i class="ti ti-brand-facebook"></i></a>
+                                        <a href="#" class="social-btn"><i class="ti ti-brand-whatsapp"></i></a>
+                                        <a href="#" class="social-btn"><i class="ti ti-brand-instagram"></i></a>
+                                        <a href="#" class="social-btn"><i class="ti ti-brand-linkedin"></i></a>
+                                </div>
+                        </div>
+                        <div class="footer-col">
+                                <h4>Quick Links</h4>
+                                <ul>
+                                        <li><a href="index.html"><i class="ti ti-chevron-right"></i>Home</a></li>
+                                        <li><a href="about.html"><i class="ti ti-chevron-right"></i>About Us</a></li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Services</a></li>
+                                        <li><a href="projects.html"><i class="ti ti-chevron-right"></i>Projects</a></li>
+                                        <li><a href="contact.html"><i class="ti ti-chevron-right"></i>Contact</a></li>
+                                        <li><a href="privacy.html"><i class="ti ti-chevron-right"></i>Privacy Policy</a>
+                                        </li>
+                                </ul>
+                        </div>
+                        <div class="footer-col">
+                                <h4>Services</h4>
+                                <ul>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Earthworks</a>
+                                        </li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Sand &amp;
+                                                        Crusher</a></li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Bricks &amp;
+                                                        Blocks</a></li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Paving</a></li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Plant Hire</a>
+                                        </li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Construction</a>
+                                        </li>
+                                </ul>
+                        </div>
+                        <div class="footer-col">
+                                <h4>Contact</h4>
+                                <div class="footer-contact-item"><i class="ti ti-phone"></i><span>063 557 7581</span>
+                                </div>
+                                <div class="footer-contact-item"><i
+                                                class="ti ti-mail"></i><span>info@xiviritrading.co.za</span></div>
+                                <div class="footer-contact-item"><i class="ti ti-map-pin"></i><span>Hluvukani,
+                                                Bushbuckridge<br>Mpumalanga, South Africa</span></div>
+                                <div class="footer-contact-item"><i class="ti ti-clock"></i><span>Mon–Fri:
+                                                07:00–17:00<br>Sat: 07:00–13:00</span></div>
+                        </div>
+                </div>
+                <div class="footer-bottom">
+                        <p>&copy; 2024 Xiviri Trading and Projects (Pty) Ltd. All rights reserved.</p>
+                        <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a
+                                        href="quote.html">Get a Quote</a></div>
+                </div>
+        </footer>
+
+        <script>
+                window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50) });
+                const ham = document.getElementById('hamburger'), mob = document.getElementById('mobileMenu');
+                ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '' });
+                function closeMobile() { ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow = '' }
+                const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: 0.12 });
+                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+                const counterObs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { const el = e.target, target = +el.dataset.target; let count = 0; const step = Math.ceil(target / 50); const timer = setInterval(() => { count = Math.min(count + step, target); el.textContent = count + '+'; if (count >= target) clearInterval(timer) }, 30); counterObs.unobserve(el) } }) }, { threshold: 0.5 });
+                document.querySelectorAll('.stat-num').forEach(el => counterObs.observe(el));
+                document.querySelectorAll('.mv-card,.value-card').forEach(card => { card.addEventListener('mousemove', e => { const r = card.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - 0.5; const y = (e.clientY - r.top) / r.height - 0.5; card.style.transform = `translateY(-4px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)` }); card.addEventListener('mouseleave', () => { card.style.transform = '' }) });
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Privacy Policy | Xiviri Trading & Projects</title>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap"
+                rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+        <style>
+                *,
+                *::before,
+                *::after {
+                        box-sizing: border-box;
+                        margin: 0;
+                        padding: 0
+                }
+
+                :root {
+                        --orange: #E8820C;
+                        --orange-dark: #C46A08;
+                        --black: #0D0D0D;
+                        --dark: #141414;
+                        --dark2: #1E1E1E;
+                        --white: #FFFFFF;
+                        --font-head: 'Oswald', sans-serif;
+                        --font-body: 'Source Sans 3', sans-serif;
+                        --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+                }
+
+                html {
+                        scroll-behavior: smooth
+                }
+
+                body {
+                        font-family: var(--font-body);
+                        background: var(--black);
+                        color: var(--white);
+                        overflow-x: hidden
+                }
+
+                ::-webkit-scrollbar {
+                        width: 4px
+                }
+
+                ::-webkit-scrollbar-track {
+                        background: var(--black)
+                }
+
+                ::-webkit-scrollbar-thumb {
+                        background: var(--orange)
+                }
+
+                nav {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        z-index: 1000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 0 5%;
+                        height: 72px;
+                        background: rgba(13, 13, 13, 0.97);
+                        border-bottom: 1px solid rgba(232, 130, 12, 0.2)
+                }
+
+                .nav-logo {
+                        font-family: var(--font-head);
+                        font-size: 1.7rem;
+                        font-weight: 700;
+                        color: var(--orange);
+                        letter-spacing: 3px;
+                        text-decoration: none;
+                        display: flex;
+                        flex-direction: column;
+                        line-height: 1
+                }
+
+                .nav-logo small {
+                        font-size: 0.42rem;
+                        color: rgba(255, 255, 255, 0.4);
+                        letter-spacing: 5px;
+                        font-family: var(--font-body);
+                        font-weight: 300;
+                        margin-top: 4px;
+                        text-transform: uppercase
+                }
+
+                .nav-links {
+                        display: flex;
+                        gap: 0;
+                        list-style: none
+                }
+
+                .nav-links a {
+                        color: rgba(255, 255, 255, 0.75);
+                        text-decoration: none;
+                        font-family: var(--font-body);
+                        font-size: 0.82rem;
+                        letter-spacing: 1.5px;
+                        text-transform: uppercase;
+                        padding: 0.4rem 1rem;
+                        transition: color 0.3s;
+                        position: relative
+                }
+
+                .nav-links a::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -1px;
+                        left: 1rem;
+                        right: 1rem;
+                        height: 2px;
+                        background: var(--orange);
+                        transform: scaleX(0);
+                        transition: transform 0.3s
+                }
+
+                .nav-links a:hover {
+                        color: var(--white)
+                }
+
+                .nav-links a:hover::after {
+                        transform: scaleX(1)
+                }
+
+                .nav-cta {
+                        background: var(--orange);
+                        color: var(--white);
+                        padding: 0.55rem 1.5rem;
+                        font-family: var(--font-head);
+                        font-size: 0.82rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        transition: var(--transition);
+                        clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+                        white-space: nowrap
+                }
+
+                .nav-cta:hover {
+                        background: var(--orange-dark)
+                }
+
+                .hamburger {
+                        display: none;
+                        flex-direction: column;
+                        gap: 5px;
+                        cursor: pointer;
+                        background: none;
+                        border: none;
+                        padding: 4px
+                }
+
+                .hamburger span {
+                        display: block;
+                        width: 24px;
+                        height: 2px;
+                        background: var(--white);
+                        transition: all 0.3s
+                }
+
+                .hamburger.open span:nth-child(1) {
+                        transform: translateY(7px) rotate(45deg)
+                }
+
+                .hamburger.open span:nth-child(2) {
+                        opacity: 0
+                }
+
+                .hamburger.open span:nth-child(3) {
+                        transform: translateY(-7px) rotate(-45deg)
+                }
+
+                .mobile-menu {
+                        display: none;
+                        position: fixed;
+                        top: 72px;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(13, 13, 13, 0.99);
+                        backdrop-filter: blur(30px);
+                        padding: 3rem 5%;
+                        z-index: 999;
+                        flex-direction: column;
+                        gap: 0
+                }
+
+                .mobile-menu.open {
+                        display: flex
+                }
+
+                .mobile-menu a {
+                        color: rgba(255, 255, 255, 0.8);
+                        text-decoration: none;
+                        font-family: var(--font-head);
+                        font-size: 1.6rem;
+                        letter-spacing: 3px;
+                        text-transform: uppercase;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                        padding: 1.2rem 0;
+                        transition: color 0.3s;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.75rem
+                }
+
+                .mobile-menu a:hover {
+                        color: var(--orange)
+                }
+
+                .reveal {
+                        opacity: 0;
+                        transform: translateY(30px);
+                        transition: opacity 0.6s ease, transform 0.6s ease
+                }
+
+                .reveal.visible {
+                        opacity: 1;
+                        transform: none
+                }
+
+                .page-hero {
+                        min-height: 40vh;
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        overflow: hidden;
+                        padding-top: 72px;
+                        background: var(--dark)
+                }
+
+                .page-hero-content {
+                        position: relative;
+                        z-index: 2;
+                        padding: 4rem 5%
+                }
+
+                .page-breadcrumb {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        margin-bottom: 1.5rem;
+                        font-size: 0.78rem;
+                        color: rgba(255, 255, 255, 0.4);
+                        text-transform: uppercase;
+                        letter-spacing: 2px
+                }
+
+                .page-breadcrumb a {
+                        color: rgba(255, 255, 255, 0.4);
+                        text-decoration: none;
+                        transition: color 0.3s
+                }
+
+                .page-breadcrumb a:hover {
+                        color: var(--orange)
+                }
+
+                .page-breadcrumb i {
+                        font-size: 0.7rem
+                }
+
+                .page-hero h1 {
+                        font-family: var(--font-head);
+                        font-size: clamp(2.5rem, 6vw, 4.5rem);
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        line-height: 1
+                }
+
+                .page-hero h1 span {
+                        color: var(--orange)
+                }
+
+                .page-hero-line {
+                        width: 80px;
+                        height: 3px;
+                        background: var(--orange);
+                        margin-top: 1.5rem
+                }
+
+                .page-meta {
+                        font-size: 0.78rem;
+                        color: rgba(255, 255, 255, 0.35);
+                        margin-top: 0.75rem;
+                        letter-spacing: 1px
+                }
+
+                /* PRIVACY CONTENT */
+                .privacy-section {
+                        background: var(--dark);
+                        padding: 7rem 5%
+                }
+
+                .privacy-layout {
+                        display: grid;
+                        grid-template-columns: 250px 1fr;
+                        gap: 5rem
+                }
+
+                .privacy-nav {
+                        position: sticky;
+                        top: 100px;
+                        height: fit-content
+                }
+
+                .privacy-nav h4 {
+                        font-family: var(--font-head);
+                        font-size: 0.78rem;
+                        letter-spacing: 3px;
+                        text-transform: uppercase;
+                        color: rgba(255, 255, 255, 0.35);
+                        margin-bottom: 1rem
+                }
+
+                .privacy-nav ul {
+                        list-style: none;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0
+                }
+
+                .privacy-nav ul a {
+                        display: block;
+                        color: rgba(255, 255, 255, 0.45);
+                        text-decoration: none;
+                        font-size: 0.83rem;
+                        padding: 0.55rem 0;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                        transition: color 0.3s
+                }
+
+                .privacy-nav ul a:hover {
+                        color: var(--orange)
+                }
+
+                .privacy-content {}
+
+                .privacy-block {
+                        margin-bottom: 3.5rem
+                }
+
+                .privacy-block h2 {
+                        font-family: var(--font-head);
+                        font-size: 1.3rem;
+                        text-transform: uppercase;
+                        letter-spacing: 1.5px;
+                        margin-bottom: 1.25rem;
+                        padding-bottom: 0.75rem;
+                        border-bottom: 1px solid rgba(232, 130, 12, 0.2);
+                        color: var(--white);
+                        display: flex;
+                        align-items: center;
+                        gap: 0.6rem
+                }
+
+                .privacy-block h2 i {
+                        color: var(--orange);
+                        font-size: 1.1rem
+                }
+
+                .privacy-block p {
+                        color: rgba(255, 255, 255, 0.6);
+                        line-height: 1.85;
+                        font-size: 0.92rem;
+                        font-weight: 300;
+                        margin-bottom: 1rem
+                }
+
+                .privacy-block ul {
+                        margin-left: 1.2rem;
+                        color: rgba(255, 255, 255, 0.55);
+                        font-size: 0.9rem;
+                        line-height: 1.8;
+                        font-weight: 300
+                }
+
+                .privacy-block ul li {
+                        margin-bottom: 0.4rem
+                }
+
+                .privacy-highlight {
+                        background: rgba(232, 130, 12, 0.07);
+                        border-left: 3px solid var(--orange);
+                        padding: 1.25rem 1.5rem;
+                        margin: 1.5rem 0
+                }
+
+                .privacy-highlight p {
+                        color: rgba(255, 255, 255, 0.7);
+                        margin-bottom: 0
+                }
+
+                footer {
+                        background: var(--dark);
+                        border-top: 1px solid rgba(255, 255, 255, 0.06)
+                }
+
+                .footer-top {
+                        padding: 4rem 5%;
+                        display: grid;
+                        grid-template-columns: 2fr 1fr 1fr 1fr;
+                        gap: 3rem
+                }
+
+                .footer-logo {
+                        font-family: var(--font-head);
+                        font-size: 1.6rem;
+                        color: var(--orange);
+                        letter-spacing: 3px;
+                        margin-bottom: 0.5rem;
+                        display: block
+                }
+
+                .footer-logo small {
+                        display: block;
+                        font-family: var(--font-body);
+                        font-size: 0.55rem;
+                        color: rgba(255, 255, 255, 0.3);
+                        letter-spacing: 4px;
+                        text-transform: uppercase;
+                        margin-top: 3px
+                }
+
+                .footer-brand p {
+                        color: rgba(255, 255, 255, 0.45);
+                        font-size: 0.85rem;
+                        line-height: 1.7;
+                        margin-top: 1rem;
+                        font-weight: 300;
+                        max-width: 280px
+                }
+
+                .footer-socials {
+                        display: flex;
+                        gap: 0.75rem;
+                        margin-top: 1.5rem
+                }
+
+                .social-btn {
+                        width: 36px;
+                        height: 36px;
+                        border: 1px solid rgba(255, 255, 255, 0.12);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: rgba(255, 255, 255, 0.5);
+                        text-decoration: none;
+                        transition: all 0.3s;
+                        font-size: 0.95rem
+                }
+
+                .social-btn:hover {
+                        border-color: var(--orange);
+                        color: var(--orange);
+                        background: rgba(232, 130, 12, 0.1)
+                }
+
+                .footer-col h4 {
+                        font-family: var(--font-head);
+                        font-size: 0.85rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        color: var(--white);
+                        margin-bottom: 1.25rem;
+                        padding-bottom: 0.75rem;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.07)
+                }
+
+                .footer-col ul {
+                        list-style: none;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.6rem
+                }
+
+                .footer-col ul a {
+                        color: rgba(255, 255, 255, 0.45);
+                        text-decoration: none;
+                        font-size: 0.85rem;
+                        transition: color 0.3s;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.4rem
+                }
+
+                .footer-col ul a:hover {
+                        color: var(--orange)
+                }
+
+                .footer-col ul a i {
+                        font-size: 0.75rem;
+                        opacity: 0.5
+                }
+
+                .footer-contact-item {
+                        display: flex;
+                        gap: 0.6rem;
+                        align-items: flex-start;
+                        margin-bottom: 0.75rem
+                }
+
+                .footer-contact-item i {
+                        color: var(--orange);
+                        font-size: 0.95rem;
+                        margin-top: 2px;
+                        flex-shrink: 0
+                }
+
+                .footer-contact-item span {
+                        color: rgba(255, 255, 255, 0.45);
+                        font-size: 0.83rem;
+                        line-height: 1.5
+                }
+
+                .footer-bottom {
+                        padding: 1.25rem 5%;
+                        border-top: 1px solid rgba(255, 255, 255, 0.05);
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 1rem
+                }
+
+                .footer-bottom p {
+                        color: rgba(255, 255, 255, 0.2);
+                        font-size: 0.75rem
+                }
+
+                .footer-bottom-links {
+                        display: flex;
+                        gap: 1.5rem
+                }
+
+                .footer-bottom-links a {
+                        color: rgba(255, 255, 255, 0.2);
+                        font-size: 0.75rem;
+                        text-decoration: none;
+                        transition: color 0.3s
+                }
+
+                .footer-bottom-links a:hover {
+                        color: var(--orange)
+                }
+
+                @media(max-width:1024px) {
+                        .privacy-layout {
+                                grid-template-columns: 1fr
+                        }
+
+                        .privacy-nav {
+                                display: none
+                        }
+
+                        .footer-top {
+                                grid-template-columns: 1fr 1fr
+                        }
+                }
+
+                @media(max-width:768px) {
+
+                        .nav-links,
+                        .nav-cta {
+                                display: none
+                        }
+
+                        .hamburger {
+                                display: flex
+                        }
+
+                        .footer-top {
+                                grid-template-columns: 1fr
+                        }
+                }
+        </style>
+</head>
+
+<body>
+        <nav id="navbar">
+                <a href="index.html" class="nav-logo">XIVIRI<small>Trading &amp; Projects (Pty) Ltd</small></a>
+                <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="quote.html" class="nav-cta">Get a Quote</a>
+                <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+                <a href="index.html" onclick="closeMobile()"><i class="ti ti-home"></i>Home</a>
+                <a href="about.html" onclick="closeMobile()"><i class="ti ti-info-circle"></i>About</a>
+                <a href="services.html" onclick="closeMobile()"><i class="ti ti-tool"></i>Services</a>
+                <a href="projects.html" onclick="closeMobile()"><i class="ti ti-building"></i>Projects</a>
+                <a href="contact.html" onclick="closeMobile()"><i class="ti ti-phone"></i>Contact</a>
+                <a href="quote.html" onclick="closeMobile()"><i class="ti ti-file-text"></i>Get a Quote</a>
+        </div>
+
+        <div class="page-hero">
+                <div class="page-hero-content">
+                        <div class="page-breadcrumb"><a href="index.html">Home</a><i
+                                        class="ti ti-chevron-right"></i><span>Privacy Policy</span></div>
+                        <h1>Privacy <span>Policy</span></h1>
+                        <div class="page-hero-line"></div>
+                        <p class="page-meta">Last updated: January 2024 &nbsp;|&nbsp; Effective: January 2024</p>
+                </div>
+        </div>
+
+        <section class="privacy-section">
+                <div class="privacy-layout">
+                        <div class="privacy-nav">
+                                <h4>Contents</h4>
+                                <ul>
+                                        <li><a href="#intro">Introduction</a></li>
+                                        <li><a href="#collect">Information We Collect</a></li>
+                                        <li><a href="#use">How We Use It</a></li>
+                                        <li><a href="#sharing">Sharing Your Data</a></li>
+                                        <li><a href="#security">Data Security</a></li>
+                                        <li><a href="#rights">Your Rights</a></li>
+                                        <li><a href="#cookies">Cookies</a></li>
+                                        <li><a href="#contact-us">Contact Us</a></li>
+                                </ul>
+                        </div>
+                        <div class="privacy-content">
+                                <div class="privacy-block reveal" id="intro">
+                                        <h2><i class="ti ti-shield"></i> Introduction</h2>
+                                        <p>Xiviri Trading and Projects (Pty) Ltd ("we", "our", or "us") is committed to
+                                                protecting your personal information. This Privacy Policy explains how
+                                                we collect, use, and safeguard your information when you visit our
+                                                website or contact us for our services.</p>
+                                        <p>By using our website or submitting your information to us, you agree to the
+                                                terms of this Privacy Policy. This policy is compliant with the
+                                                Protection of Personal Information Act (POPIA) of South Africa.</p>
+                                        <div class="privacy-highlight">
+                                                <p><strong style="color:var(--orange)">Our commitment:</strong> We will
+                                                        never sell, rent or trade your personal information to third
+                                                        parties for marketing purposes.</p>
+                                        </div>
+                                </div>
+                                <div class="privacy-block reveal" id="collect">
+                                        <h2><i class="ti ti-database"></i> Information We Collect</h2>
+                                        <p>We collect information you voluntarily provide to us, including:</p>
+                                        <ul>
+                                                <li>Your full name and contact details (phone number and email address)
+                                                </li>
+                                                <li>Company name and business details (where applicable)</li>
+                                                <li>Project details, location and requirements submitted via our quote
+                                                        or contact forms</li>
+                                                <li>Any other information you choose to share with us</li>
+                                        </ul>
+                                        <p>We may also collect non-personal information automatically, such as browser
+                                                type, device information and pages visited, through cookies and similar
+                                                technologies.</p>
+                                </div>
+                                <div class="privacy-block reveal" id="use">
+                                        <h2><i class="ti ti-settings"></i> How We Use Your Information</h2>
+                                        <p>We use the information we collect to:</p>
+                                        <ul>
+                                                <li>Respond to your enquiries and provide the services you request</li>
+                                                <li>Prepare and send you project quotations</li>
+                                                <li>Communicate with you about your project or enquiry</li>
+                                                <li>Improve our website and service offerings</li>
+                                                <li>Comply with our legal obligations under South African law</li>
+                                        </ul>
+                                        <p>We will only contact you for the purposes for which you provided your
+                                                information and will not use it for unrelated marketing without your
+                                                consent.</p>
+                                </div>
+                                <div class="privacy-block reveal" id="sharing">
+                                        <h2><i class="ti ti-share"></i> Sharing Your Data</h2>
+                                        <p>We do not sell, trade or otherwise transfer your personal information to
+                                                outside parties. Your information may only be shared in the following
+                                                limited circumstances:</p>
+                                        <ul>
+                                                <li>With trusted service providers who assist us in operating our
+                                                        business (e.g. email providers), bound by confidentiality
+                                                        agreements</li>
+                                                <li>When required by law, regulation or legal process</li>
+                                                <li>To protect our rights, property or safety, or that of others</li>
+                                        </ul>
+                                </div>
+                                <div class="privacy-block reveal" id="security">
+                                        <h2><i class="ti ti-lock"></i> Data Security</h2>
+                                        <p>We take reasonable steps to protect your personal information from
+                                                unauthorised access, use or disclosure. However, no internet
+                                                transmission is completely secure, and we cannot guarantee the security
+                                                of information transmitted to our website.</p>
+                                        <p>We retain your personal information only for as long as necessary to fulfil
+                                                the purposes for which it was collected, or as required by law.</p>
+                                </div>
+                                <div class="privacy-block reveal" id="rights">
+                                        <h2><i class="ti ti-user-check"></i> Your Rights (POPIA)</h2>
+                                        <p>Under the Protection of Personal Information Act (POPIA), you have the right
+                                                to:</p>
+                                        <ul>
+                                                <li>Request access to the personal information we hold about you</li>
+                                                <li>Request correction of inaccurate or incomplete information</li>
+                                                <li>Request deletion of your personal information (subject to legal
+                                                        requirements)</li>
+                                                <li>Object to the processing of your personal information</li>
+                                                <li>Lodge a complaint with the Information Regulator of South Africa
+                                                </li>
+                                        </ul>
+                                        <p>To exercise any of these rights, please contact us using the details below.
+                                        </p>
+                                </div>
+                                <div class="privacy-block reveal" id="cookies">
+                                        <h2><i class="ti ti-cookie"></i> Cookies</h2>
+                                        <p>Our website may use cookies to enhance your browsing experience. Cookies are
+                                                small files placed on your device that help us understand how you use
+                                                our site. You can choose to disable cookies through your browser
+                                                settings, though this may affect some website functionality.</p>
+                                </div>
+                                <div class="privacy-block reveal" id="contact-us">
+                                        <h2><i class="ti ti-mail"></i> Contact Us About This Policy</h2>
+                                        <p>If you have any questions about this Privacy Policy or how we handle your
+                                                personal information, please contact us:</p>
+                                        <div class="privacy-highlight">
+                                                <p><strong style="color:var(--orange)">Xiviri Trading and Projects (Pty)
+                                                                Ltd</strong><br>
+                                                        Hluvukani, Bushbuckridge, Mpumalanga, South Africa<br>
+                                                        Phone: <a href="tel:0635577581" style="color:var(--orange)">063
+                                                                557 7581</a><br>
+                                                        Email: <a href="mailto:info@xiviritrading.co.za"
+                                                                style="color:var(--orange)">info@xiviritrading.co.za</a>
+                                                </p>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </section>
+
+        <footer>
+                <div class="footer-top">
+                        <div class="footer-brand"><span class="footer-logo">XIVIRI<small>Trading &amp; Projects (Pty)
+                                                Ltd</small></span>
+                                <p>A proudly South African construction and supply company based in Hluvukani,
+                                        Mpumalanga, serving clients across the region since 2016.</p>
+                                <div class="footer-socials"><a href="#" class="social-btn"><i
+                                                        class="ti ti-brand-facebook"></i></a><a href="#"
+                                                class="social-btn"><i class="ti ti-brand-whatsapp"></i></a><a href="#"
+                                                class="social-btn"><i class="ti ti-brand-instagram"></i></a><a href="#"
+                                                class="social-btn"><i class="ti ti-brand-linkedin"></i></a></div>
+                        </div>
+                        <div class="footer-col">
+                                <h4>Quick Links</h4>
+                                <ul>
+                                        <li><a href="index.html"><i class="ti ti-chevron-right"></i>Home</a></li>
+                                        <li><a href="about.html"><i class="ti ti-chevron-right"></i>About Us</a></li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Services</a></li>
+                                        <li><a href="projects.html"><i class="ti ti-chevron-right"></i>Projects</a></li>
+                                        <li><a href="contact.html"><i class="ti ti-chevron-right"></i>Contact</a></li>
+                                        <li><a href="privacy.html"><i class="ti ti-chevron-right"></i>Privacy Policy</a>
+                                        </li>
+                                </ul>
+                        </div>
+                        <div class="footer-col">
+                                <h4>Services</h4>
+                                <ul>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Earthworks</a>
+                                        </li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Sand &amp;
+                                                        Crusher</a></li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Bricks &amp;
+                                                        Blocks</a></li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Paving</a></li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Plant Hire</a>
+                                        </li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Construction</a>
+                                        </li>
+                                </ul>
+                        </div>
+                        <div class="footer-col">
+                                <h4>Contact</h4>
+                                <div class="footer-contact-item"><i class="ti ti-phone"></i><span>063 557 7581</span>
+                                </div>
+                                <div class="footer-contact-item"><i
+                                                class="ti ti-mail"></i><span>info@xiviritrading.co.za</span></div>
+                                <div class="footer-contact-item"><i class="ti ti-map-pin"></i><span>Hluvukani,
+                                                Bushbuckridge<br>Mpumalanga, South Africa</span></div>
+                                <div class="footer-contact-item"><i class="ti ti-clock"></i><span>Mon–Fri:
+                                                07:00–17:00<br>Sat: 07:00–13:00</span></div>
+                        </div>
+                </div>
+                <div class="footer-bottom">
+                        <p>&copy; 2024 Xiviri Trading and Projects (Pty) Ltd. All rights reserved.</p>
+                        <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a
+                                        href="quote.html">Get a Quote</a></div>
+                </div>
+        </footer>
+        <script>
+                window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50) });
+                const ham = document.getElementById('hamburger'), mob = document.getElementById('mobileMenu');
+                ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '' });
+                function closeMobile() { ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow = '' }
+                const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: 0.1 });
+                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        </script>
+</body>
+
+</html>

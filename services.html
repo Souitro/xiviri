@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Services | Xiviri Trading & Projects</title>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap"
+                rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+        <style>
+                *,
+                *::before,
+                *::after {
+                        box-sizing: border-box;
+                        margin: 0;
+                        padding: 0
+                }
+
+                :root {
+                        --orange: #E8820C;
+                        --orange-dark: #C46A08;
+                        --orange-light: #F5A83A;
+                        --black: #0D0D0D;
+                        --dark: #141414;
+                        --dark2: #1E1E1E;
+                        --white: #FFFFFF;
+                        --font-head: 'Oswald', sans-serif;
+                        --font-body: 'Source Sans 3', sans-serif;
+                        --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+                }
+
+                html {
+                        scroll-behavior: smooth
+                }
+
+                body {
+                        font-family: var(--font-body);
+                        background: var(--black);
+                        color: var(--white);
+                        overflow-x: hidden
+                }
+
+                ::-webkit-scrollbar {
+                        width: 4px
+                }
+
+                ::-webkit-scrollbar-track {
+                        background: var(--black)
+                }
+
+                ::-webkit-scrollbar-thumb {
+                        background: var(--orange)
+                }
+
+                nav {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        z-index: 1000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 0 5%;
+                        height: 72px;
+                        background: rgba(13, 13, 13, 0.15);
+                        backdrop-filter: blur(20px);
+                        border-bottom: 1px solid rgba(232, 130, 12, 0.15);
+                        transition: var(--transition)
+                }
+
+                nav.scrolled {
+                        background: rgba(13, 13, 13, 0.97);
+                        border-color: rgba(232, 130, 12, 0.3)
+                }
+
+                .nav-logo {
+                        font-family: var(--font-head);
+                        font-size: 1.7rem;
+                        font-weight: 700;
+                        color: var(--orange);
+                        letter-spacing: 3px;
+                        text-decoration: none;
+                        display: flex;
+                        flex-direction: column;
+                        line-height: 1
+                }
+
+                .nav-logo small {
+                        font-size: 0.42rem;
+                        color: rgba(255, 255, 255, 0.4);
+                        letter-spacing: 5px;
+                        font-family: var(--font-body);
+                        font-weight: 300;
+                        margin-top: 4px;
+                        text-transform: uppercase
+                }
+
+                .nav-links {
+                        display: flex;
+                        gap: 0;
+                        list-style: none
+                }
+
+                .nav-links a {
+                        color: rgba(255, 255, 255, 0.75);
+                        text-decoration: none;
+                        font-family: var(--font-body);
+                        font-size: 0.82rem;
+                        letter-spacing: 1.5px;
+                        text-transform: uppercase;
+                        padding: 0.4rem 1rem;
+                        transition: color 0.3s;
+                        position: relative
+                }
+
+                .nav-links a::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -1px;
+                        left: 1rem;
+                        right: 1rem;
+                        height: 2px;
+                        background: var(--orange);
+                        transform: scaleX(0);
+                        transition: transform 0.3s
+                }
+
+                .nav-links a:hover {
+                        color: var(--white)
+                }
+
+                .nav-links a:hover::after,
+                .nav-links a.active::after {
+                        transform: scaleX(1)
+                }
+
+                .nav-links a.active {
+                        color: var(--white)
+                }
+
+                .nav-cta {
+                        background: var(--orange);
+                        color: var(--white);
+                        padding: 0.55rem 1.5rem;
+                        font-family: var(--font-head);
+                        font-size: 0.82rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        transition: var(--transition);
+                        clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+                        white-space: nowrap
+                }
+
+                .nav-cta:hover {
+                        background: var(--orange-dark)
+                }
+
+                .hamburger {
+                        display: none;
+                        flex-direction: column;
+                        gap: 5px;
+                        cursor: pointer;
+                        background: none;
+                        border: none;
+                        padding: 4px
+                }
+
+                .hamburger span {
+                        display: block;
+                        width: 24px;
+                        height: 2px;
+                        background: var(--white);
+                        transition: all 0.3s
+                }
+
+                .hamburger.open span:nth-child(1) {
+                        transform: translateY(7px) rotate(45deg)
+                }
+
+                .hamburger.open span:nth-child(2) {
+                        opacity: 0
+                }
+
+                .hamburger.open span:nth-child(3) {
+                        transform: translateY(-7px) rotate(-45deg)
+                }
+
+                .mobile-menu {
+                        display: none;
+                        position: fixed;
+                        top: 72px;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(13, 13, 13, 0.99);
+                        backdrop-filter: blur(30px);
+                        padding: 3rem 5%;
+                        z-index: 999;
+                        flex-direction: column;
+                        gap: 0
+                }
+
+                .mobile-menu.open {
+                        display: flex
+                }
+
+                .mobile-menu a {
+                        color: rgba(255, 255, 255, 0.8);
+                        text-decoration: none;
+                        font-family: var(--font-head);
+                        font-size: 1.6rem;
+                        letter-spacing: 3px;
+                        text-transform: uppercase;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                        padding: 1.2rem 0;
+                        transition: color 0.3s;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.75rem
+                }
+
+                .mobile-menu a:hover {
+                        color: var(--orange)
+                }
+
+                .reveal {
+                        opacity: 0;
+                        transform: translateY(50px);
+                        transition: opacity 0.7s ease, transform 0.7s ease
+                }
+
+                .reveal.left {
+                        transform: translateX(-50px)
+                }
+
+                .reveal.right {
+                        transform: translateX(50px)
+                }
+
+                .reveal.scale {
+                        transform: scale(0.92)
+                }
+
+                .reveal.visible {
+                        opacity: 1;
+                        transform: none
+                }
+
+                .section-label {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        font-size: 0.72rem;
+                        letter-spacing: 4px;
+                        text-transform: uppercase;
+                        color: var(--orange);
+                        margin-bottom: 0.75rem
+                }
+
+                .section-label::before {
+                        content: '';
+                        width: 30px;
+                        height: 1px;
+                        background: var(--orange)
+                }
+
+                .section-title {
+                        font-family: var(--font-head);
+                        font-size: clamp(2rem, 4vw, 3.2rem);
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        line-height: 1.05;
+                        margin-bottom: 1.5rem
+                }
+
+                .section-title span {
+                        color: var(--orange)
+                }
+
+                .btn-primary {
+                        background: var(--orange);
+                        color: var(--white);
+                        padding: 0.9rem 2.2rem;
+                        font-family: var(--font-head);
+                        font-size: 0.95rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        border: none;
+                        cursor: pointer;
+                        transition: var(--transition);
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.6rem;
+                        clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)
+                }
+
+                .btn-primary:hover {
+                        background: var(--orange-dark);
+                        transform: translateY(-3px)
+                }
+
+                .btn-outline {
+                        background: transparent;
+                        color: var(--white);
+                        padding: 0.9rem 2.2rem;
+                        font-family: var(--font-head);
+                        font-size: 0.95rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                        cursor: pointer;
+                        transition: var(--transition);
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.6rem
+                }
+
+                .btn-outline:hover {
+                        border-color: var(--orange);
+                        color: var(--orange);
+                        transform: translateY(-3px)
+                }
+
+                .page-hero {
+                        min-height: 50vh;
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        overflow: hidden;
+                        padding-top: 72px;
+                        background: var(--dark)
+                }
+
+                .page-hero-bg {
+                        position: absolute;
+                        inset: 0;
+                        background: url('image/SITE_IMAGE.jpeg') center/cover no-repeat;
+                        opacity: 0.7;
+                        transform: scale(1.05)
+                }
+
+                .page-hero-overlay {
+                        position: absolute;
+                        inset: 0;
+                        background: linear-gradient(180deg, rgba(13, 13, 13, 0.5) 0%, var(--dark) 100%)
+                }
+
+                .page-hero-content {
+                        position: relative;
+                        z-index: 2;
+                        padding: 4rem 5%
+                }
+
+                .page-breadcrumb {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        margin-bottom: 1.5rem;
+                        font-size: 0.78rem;
+                        color: rgba(255, 255, 255, 0.4);
+                        text-transform: uppercase;
+                        letter-spacing: 2px
+                }
+
+                .page-breadcrumb a {
+                        color: rgba(255, 255, 255, 0.4);
+                        text-decoration: none;
+                        transition: color 0.3s
+                }
+
+                .page-breadcrumb a:hover {
+                        color: var(--orange)
+                }
+
+                .page-breadcrumb i {
+                        font-size: 0.7rem
+                }
+
+                .page-hero h1 {
+                        font-family: var(--font-head);
+                        font-size: clamp(2.5rem, 6vw, 5rem);
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        line-height: 1
+                }
+
+                .page-hero h1 span {
+                        color: var(--orange)
+                }
+
+                .page-hero-line {
+                        width: 80px;
+                        height: 3px;
+                        background: var(--orange);
+                        margin-top: 1.5rem
+                }
+
+                /* SERVICE DETAIL CARDS */
+                .services-detail {
+                        background: var(--dark);
+                        padding: 7rem 5%
+                }
+
+                .service-detail-card {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 5rem;
+                        align-items: center;
+                        margin-bottom: 6rem;
+                        padding-bottom: 6rem;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                }
+
+                .service-detail-card:last-child {
+                        border-bottom: none;
+                        margin-bottom: 0;
+                        padding-bottom: 0
+                }
+
+                .service-detail-card.reverse {
+                        direction: rtl
+                }
+
+                .service-detail-card.reverse>* {
+                        direction: ltr
+                }
+
+                .service-img {
+                        position: relative;
+                        overflow: hidden
+                }
+
+                .service-img img {
+                        width: 100%;
+                        height: 380px;
+                        object-fit: cover;
+                        display: block;
+                        transition: transform 0.6s ease
+                }
+
+                .service-img:hover img {
+                        transform: scale(1.05)
+                }
+
+                .service-img-tag {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        background: var(--orange);
+                        padding: 0.6rem 1.2rem;
+                        font-family: var(--font-head);
+                        font-size: 0.78rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                }
+
+                .service-detail-num {
+                        font-family: var(--font-head);
+                        font-size: 5rem;
+                        font-weight: 700;
+                        color: rgba(232, 130, 12, 0.08);
+                        line-height: 1;
+                        margin-bottom: -1rem;
+                }
+
+                .service-detail-icon {
+                        width: 60px;
+                        height: 60px;
+                        background: rgba(232, 130, 12, 0.1);
+                        border: 1px solid rgba(232, 130, 12, 0.25);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-bottom: 1.5rem;
+                }
+
+                .service-detail-icon i {
+                        color: var(--orange);
+                        font-size: 1.6rem
+                }
+
+                .service-detail-content h3 {
+                        font-family: var(--font-head);
+                        font-size: 1.8rem;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        margin-bottom: 1rem
+                }
+
+                .service-detail-content p {
+                        color: rgba(255, 255, 255, 0.6);
+                        line-height: 1.85;
+                        font-weight: 300;
+                        margin-bottom: 1.25rem
+                }
+
+                .service-features {
+                        list-style: none;
+                        margin: 1.5rem 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.6rem
+                }
+
+                .service-features li {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.6rem;
+                        font-size: 0.88rem;
+                        color: rgba(255, 255, 255, 0.7)
+                }
+
+                .service-features li i {
+                        color: var(--orange);
+                        font-size: 1rem;
+                        flex-shrink: 0
+                }
+
+                /* PROCESS */
+                .process-section {
+                        background: var(--black);
+                        padding: 7rem 5%
+                }
+
+                .process-steps {
+                        display: grid;
+                        grid-template-columns: repeat(5, 1fr);
+                        gap: 0;
+                        margin-top: 4rem;
+                        position: relative
+                }
+
+                .process-steps::before {
+                        content: '';
+                        position: absolute;
+                        top: 36px;
+                        left: 10%;
+                        right: 10%;
+                        height: 1px;
+                        background: rgba(232, 130, 12, 0.2)
+                }
+
+                .process-step {
+                        text-align: center;
+                        padding: 0 1rem;
+                        position: relative;
+                        z-index: 1
+                }
+
+                .step-num {
+                        width: 72px;
+                        height: 72px;
+                        border-radius: 50%;
+                        background: var(--black);
+                        border: 2px solid rgba(232, 130, 12, 0.3);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0 auto 1.25rem;
+                        font-family: var(--font-head);
+                        font-size: 1.3rem;
+                        color: var(--orange);
+                        transition: all 0.35s;
+                }
+
+                .process-step:hover .step-num {
+                        background: var(--orange);
+                        border-color: var(--orange);
+                        color: var(--white)
+                }
+
+                .process-step h4 {
+                        font-family: var(--font-head);
+                        font-size: 0.88rem;
+                        text-transform: uppercase;
+                        letter-spacing: 1.5px;
+                        margin-bottom: 0.5rem
+                }
+
+                .process-step p {
+                        font-size: 0.78rem;
+                        color: rgba(255, 255, 255, 0.45);
+                        line-height: 1.5;
+                        font-weight: 300
+                }
+
+                /* CTA + FOOTER same as other pages */
+                .cta-section {
+                        background: var(--dark);
+                        padding: 7rem 5%;
+                        text-align: center;
+                        position: relative;
+                        overflow: hidden
+                }
+
+                .cta-section::before {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 600px;
+                        height: 600px;
+                        border-radius: 50%;
+                        background: radial-gradient(circle, rgba(232, 130, 12, 0.07) 0%, transparent 70%);
+                        pointer-events: none
+                }
+
+                .cta-line {
+                        width: 1px;
+                        height: 80px;
+                        background: linear-gradient(180deg, transparent, var(--orange), transparent);
+                        margin: 0 auto 2rem
+                }
+
+                footer {
+                        background: var(--dark);
+                        border-top: 1px solid rgba(255, 255, 255, 0.06)
+                }
+
+                .footer-top {
+                        padding: 4rem 5%;
+                        display: grid;
+                        grid-template-columns: 2fr 1fr 1fr 1fr;
+                        gap: 3rem
+                }
+
+                .footer-logo {
+                        font-family: var(--font-head);
+                        font-size: 1.6rem;
+                        color: var(--orange);
+                        letter-spacing: 3px;
+                        margin-bottom: 0.5rem;
+                        display: block
+                }
+
+                .footer-logo small {
+                        display: block;
+                        font-family: var(--font-body);
+                        font-size: 0.55rem;
+                        color: rgba(255, 255, 255, 0.3);
+                        letter-spacing: 4px;
+                        text-transform: uppercase;
+                        margin-top: 3px
+                }
+
+                .footer-brand p {
+                        color: rgba(255, 255, 255, 0.45);
+                        font-size: 0.85rem;
+                        line-height: 1.7;
+                        margin-top: 1rem;
+                        font-weight: 300;
+                        max-width: 280px
+                }
+
+                .footer-socials {
+                        display: flex;
+                        gap: 0.75rem;
+                        margin-top: 1.5rem
+                }
+
+                .social-btn {
+                        width: 36px;
+                        height: 36px;
+                        border: 1px solid rgba(255, 255, 255, 0.12);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: rgba(255, 255, 255, 0.5);
+                        text-decoration: none;
+                        transition: all 0.3s;
+                        font-size: 0.95rem
+                }
+
+                .social-btn:hover {
+                        border-color: var(--orange);
+                        color: var(--orange);
+                        background: rgba(232, 130, 12, 0.1)
+                }
+
+                .footer-col h4 {
+                        font-family: var(--font-head);
+                        font-size: 0.85rem;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        color: var(--white);
+                        margin-bottom: 1.25rem;
+                        padding-bottom: 0.75rem;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.07)
+                }
+
+                .footer-col ul {
+                        list-style: none;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.6rem
+                }
+
+                .footer-col ul a {
+                        color: rgba(255, 255, 255, 0.45);
+                        text-decoration: none;
+                        font-size: 0.85rem;
+                        transition: color 0.3s;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.4rem
+                }
+
+                .footer-col ul a:hover {
+                        color: var(--orange)
+                }
+
+                .footer-col ul a i {
+                        font-size: 0.75rem;
+                        opacity: 0.5
+                }
+
+                .footer-contact-item {
+                        display: flex;
+                        gap: 0.6rem;
+                        align-items: flex-start;
+                        margin-bottom: 0.75rem
+                }
+
+                .footer-contact-item i {
+                        color: var(--orange);
+                        font-size: 0.95rem;
+                        margin-top: 2px;
+                        flex-shrink: 0
+                }
+
+                .footer-contact-item span {
+                        color: rgba(255, 255, 255, 0.45);
+                        font-size: 0.83rem;
+                        line-height: 1.5
+                }
+
+                .footer-bottom {
+                        padding: 1.25rem 5%;
+                        border-top: 1px solid rgba(255, 255, 255, 0.05);
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 1rem
+                }
+
+                .footer-bottom p {
+                        color: rgba(255, 255, 255, 0.2);
+                        font-size: 0.75rem
+                }
+
+                .footer-bottom-links {
+                        display: flex;
+                        gap: 1.5rem
+                }
+
+                .footer-bottom-links a {
+                        color: rgba(255, 255, 255, 0.2);
+                        font-size: 0.75rem;
+                        text-decoration: none;
+                        transition: color 0.3s
+                }
+
+                .footer-bottom-links a:hover {
+                        color: var(--orange)
+                }
+
+                @media(max-width:1024px) {
+                        .process-steps {
+                                grid-template-columns: repeat(3, 1fr)
+                        }
+
+                        .footer-top {
+                                grid-template-columns: 1fr 1fr
+                        }
+                }
+
+                @media(max-width:768px) {
+                        .service-detail-card {
+                                grid-template-columns: 1fr;
+                                gap: 2rem
+                        }
+
+                        .service-detail-card.reverse {
+                                direction: ltr
+                        }
+
+                        .nav-links,
+                        .nav-cta {
+                                display: none
+                        }
+
+                        .hamburger {
+                                display: flex
+                        }
+
+                        .process-steps {
+                                grid-template-columns: 1fr 1fr
+                        }
+
+                        .footer-top {
+                                grid-template-columns: 1fr
+                        }
+                }
+
+                @media(max-width:480px) {
+                        .process-steps {
+                                grid-template-columns: 1fr
+                        }
+                }
+        </style>
+</head>
+
+<body>
+        <nav id="navbar">
+                <a href="index.html" class="nav-logo">XIVIRI<small>Trading &amp; Projects (Pty) Ltd</small></a>
+                <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="quote.html" class="nav-cta">Get a Quote</a>
+                <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </nav>
+        <div class="mobile-menu" id="mobileMenu">
+                <a href="index.html" onclick="closeMobile()"><i class="ti ti-home"></i>Home</a>
+                <a href="about.html" onclick="closeMobile()"><i class="ti ti-info-circle"></i>About</a>
+                <a href="services.html" onclick="closeMobile()"><i class="ti ti-tool"></i>Services</a>
+                <a href="projects.html" onclick="closeMobile()"><i class="ti ti-building"></i>Projects</a>
+                <a href="contact.html" onclick="closeMobile()"><i class="ti ti-phone"></i>Contact</a>
+                <a href="quote.html" onclick="closeMobile()"><i class="ti ti-file-text"></i>Get a Quote</a>
+        </div>
+
+        <div class="page-hero">
+                <div class="page-hero-bg"></div>
+                <div class="page-hero-overlay"></div>
+                <div class="page-hero-content">
+                        <div class="page-breadcrumb"><a href="index.html">Home</a><i
+                                        class="ti ti-chevron-right"></i><span>Services</span></div>
+                        <h1>Our <span>Services</span></h1>
+                        <div class="page-hero-line"></div>
+                </div>
+        </div>
+
+        <section class="services-detail">
+                <div class="section-label reveal">What We Offer</div>
+                <h2 class="section-title reveal">Comprehensive Construction <span>Solutions</span></h2>
+
+                <!-- SERVICE 1 -->
+                <div class="service-detail-card reveal">
+                        <div class="service-img">
+                                <img src="image/EXCAVATOR_IMAGE_BASE64.jpeg" alt="Earthworks and excavation">
+                                <div class="service-img-tag"><i class="ti ti-bulldozer"></i> Earthworks</div>
+                        </div>
+                        <div class="service-detail-content">
+                                <div class="service-detail-num">01</div>
+                                <div class="service-detail-icon"><i class="ti ti-bulldozer"></i></div>
+                                <h3>Earthworks &amp; Excavation</h3>
+                                <p>Professional earthmoving, excavation and site clearing services using our own CAT
+                                        machinery and experienced operators. We handle projects of all sizes across
+                                        Mpumalanga.</p>
+                                <p>Our earthworks team has years of experience in bulk earthworks, trenching, levelling
+                                        and foundation excavation for residential, commercial and government projects.
+                                </p>
+                                <ul class="service-features">
+                                        <li><i class="ti ti-check"></i> Bulk earthmoving &amp; site clearing</li>
+                                        <li><i class="ti ti-check"></i> Foundation &amp; trench excavation</li>
+                                        <li><i class="ti ti-check"></i> Land levelling &amp; grading</li>
+                                        <li><i class="ti ti-check"></i> CAT excavators &amp; TLBs available</li>
+                                        <li><i class="ti ti-check"></i> Experienced, certified operators</li>
+                                </ul>
+                                <a href="quote.html" class="btn-primary"><i class="ti ti-file-invoice"></i> Get a
+                                        Quote</a>
+                        </div>
+                </div>
+
+                <!-- SERVICE 2 -->
+                <div class="service-detail-card reverse reveal">
+                        <div class="service-img">
+                                <img src="image/TRUCKS_IMAGE.jpg" alt="Sand and crusher supply">
+                                <div class="service-img-tag"><i class="ti ti-truck"></i> Supply</div>
+                        </div>
+                        <div class="service-detail-content">
+                                <div class="service-detail-num">02</div>
+                                <div class="service-detail-icon"><i class="ti ti-truck"></i></div>
+                                <h3>Sand, Gravel &amp; Crusher Supply</h3>
+                                <p>We supply quality sand, gravel and crusher stone delivered by our own fleet of
+                                        heavy-duty dump trucks directly to your site — anywhere in Mpumalanga and
+                                        surrounding areas.</p>
+                                <p>Our materials are sourced from quality suppliers and delivered on time. With our own
+                                        trucks we control the entire delivery process from loading to drop-off.</p>
+                                <ul class="service-features">
+                                        <li><i class="ti ti-check"></i> River sand &amp; building sand</li>
+                                        <li><i class="ti ti-check"></i> Crusher stone &amp; gravel</li>
+                                        <li><i class="ti ti-check"></i> Own fleet — no middleman</li>
+                                        <li><i class="ti ti-check"></i> Bulk &amp; small quantity orders</li>
+                                        <li><i class="ti ti-check"></i> On-time delivery guaranteed</li>
+                                </ul>
+                                <a href="quote.html" class="btn-primary"><i class="ti ti-file-invoice"></i> Get a
+                                        Quote</a>
+                        </div>
+                </div>
+
+                <!-- SERVICE 3 -->
+                <div class="service-detail-card reveal">
+                        <div class="service-img">
+                                <img src="image/BLOCKS_IMAGE.jpeg" alt="Brick and block manufacturing">
+                                <div class="service-img-tag"><i class="ti ti-wall"></i> Manufacturing</div>
+                        </div>
+                        <div class="service-detail-content">
+                                <div class="service-detail-num">03</div>
+                                <div class="service-detail-icon"><i class="ti ti-wall"></i></div>
+                                <h3>Brick &amp; Block Manufacturing</h3>
+                                <p>We manufacture quality concrete bricks, hollow blocks and paving bricks at our own
+                                        production facility in Hluvukani. All products are manufactured to South African
+                                        National Standards.</p>
+                                <p>Our manufacturing capability means we can supply large orders consistently and on
+                                        time, with the quality control that comes from producing everything in-house.
+                                </p>
+                                <ul class="service-features">
+                                        <li><i class="ti ti-check"></i> Concrete bricks (various sizes)</li>
+                                        <li><i class="ti ti-check"></i> Hollow blocks &amp; maxi bricks</li>
+                                        <li><i class="ti ti-check"></i> Paving bricks &amp; pavers</li>
+                                        <li><i class="ti ti-check"></i> SANS compliant products</li>
+                                        <li><i class="ti ti-check"></i> Bulk orders available</li>
+                                </ul>
+                                <a href="quote.html" class="btn-primary"><i class="ti ti-file-invoice"></i> Get a
+                                        Quote</a>
+                        </div>
+                </div>
+
+                <!-- SERVICE 4 -->
+                <div class="service-detail-card reverse reveal">
+                        <div class="service-img">
+                                <img src="image/PAVING_IMAGE_BASE64.jpeg" alt="Paving work">
+                                <div class="service-img-tag"><i class="ti ti-road"></i> Paving</div>
+                        </div>
+                        <div class="service-detail-content">
+                                <div class="service-detail-num">04</div>
+                                <div class="service-detail-icon"><i class="ti ti-road"></i></div>
+                                <h3>Paving &amp; Surfacing</h3>
+                                <p>Professional brick paving installation for driveways, walkways, parking areas,
+                                        courtyards and roads. We use our own manufactured paving bricks to ensure
+                                        consistent quality throughout.</p>
+                                <ul class="service-features">
+                                        <li><i class="ti ti-check"></i> Driveway &amp; parking paving</li>
+                                        <li><i class="ti ti-check"></i> Walkways &amp; pedestrian areas</li>
+                                        <li><i class="ti ti-check"></i> Road &amp; access paving</li>
+                                        <li><i class="ti ti-check"></i> Pattern &amp; design options</li>
+                                        <li><i class="ti ti-check"></i> Own materials — better pricing</li>
+                                </ul>
+                                <a href="quote.html" class="btn-primary"><i class="ti ti-file-invoice"></i> Get a
+                                        Quote</a>
+                        </div>
+                </div>
+
+                <!-- SERVICE 5 -->
+                <div class="service-detail-card reveal">
+                        <div class="service-img">
+                                <img src="image/TRUCK2_IMAGE.jpeg" alt="Plant and truck hire">
+                                <div class="service-img-tag"><i class="ti ti-crane"></i> Hire</div>
+                        </div>
+                        <div class="service-detail-content">
+                                <div class="service-detail-num">05</div>
+                                <div class="service-detail-icon"><i class="ti ti-crane"></i></div>
+                                <h3>Plant &amp; Truck Hire</h3>
+                                <p>Hire our fleet of dump trucks, CAT excavators and TLBs with experienced operators
+                                        included. We offer competitive hourly and daily rates for both short-term and
+                                        long-term contracts.</p>
+                                <ul class="service-features">
+                                        <li><i class="ti ti-check"></i> Dump trucks (various tonnage)</li>
+                                        <li><i class="ti ti-check"></i> CAT excavators &amp; backhoes</li>
+                                        <li><i class="ti ti-check"></i> TLBs available for hire</li>
+                                        <li><i class="ti ti-check"></i> Experienced operators included</li>
+                                        <li><i class="ti ti-check"></i> Hourly &amp; daily rates</li>
+                                </ul>
+                                <a href="quote.html" class="btn-primary"><i class="ti ti-file-invoice"></i> Get a
+                                        Quote</a>
+                        </div>
+                </div>
+
+                <!-- SERVICE 6 -->
+                <div class="service-detail-card reverse reveal">
+                        <div class="service-img">
+                                <img src="image/SURVEY_IMAGE.jpeg" alt="Construction projects">
+                                <div class="service-img-tag"><i class="ti ti-building"></i> Construction</div>
+                        </div>
+                        <div class="service-detail-content">
+                                <div class="service-detail-num">06</div>
+                                <div class="service-detail-icon"><i class="ti ti-building"></i></div>
+                                <h3>Construction Projects</h3>
+                                <p>End-to-end construction contracting for government departments, municipalities and
+                                        private clients. We manage the full project lifecycle from surveying through to
+                                        completion.</p>
+                                <ul class="service-features">
+                                        <li><i class="ti ti-check"></i> Government &amp; municipal projects</li>
+                                        <li><i class="ti ti-check"></i> Private construction contracts</li>
+                                        <li><i class="ti ti-check"></i> Professional site surveying</li>
+                                        <li><i class="ti ti-check"></i> Project management included</li>
+                                        <li><i class="ti ti-check"></i> CIDB registered contractor</li>
+                                </ul>
+                                <a href="quote.html" class="btn-primary"><i class="ti ti-file-invoice"></i> Get a
+                                        Quote</a>
+                        </div>
+                </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section class="process-section">
+                <div class="section-label reveal">How We Work</div>
+                <h2 class="section-title reveal">Our <span>Process</span></h2>
+                <div class="process-steps">
+                        <div class="process-step reveal scale">
+                                <div class="step-num">01</div>
+                                <h4>Enquiry</h4>
+                                <p>Contact us by phone, email or our quote form with your project details.</p>
+                        </div>
+                        <div class="process-step reveal scale">
+                                <div class="step-num">02</div>
+                                <h4>Site Visit</h4>
+                                <p>Our team visits your site to assess requirements and scope of work.</p>
+                        </div>
+                        <div class="process-step reveal scale">
+                                <div class="step-num">03</div>
+                                <h4>Quotation</h4>
+                                <p>We provide a detailed, transparent quote within 48 hours of site visit.</p>
+                        </div>
+                        <div class="process-step reveal scale">
+                                <div class="step-num">04</div>
+                                <h4>Execution</h4>
+                                <p>Our team mobilises and delivers the work to specification and on schedule.</p>
+                        </div>
+                        <div class="process-step reveal scale">
+                                <div class="step-num">05</div>
+                                <h4>Completion</h4>
+                                <p>Final inspection, handover and follow-up to ensure your satisfaction.</p>
+                        </div>
+                </div>
+        </section>
+
+        <section class="cta-section">
+                <div class="cta-line"></div>
+                <div class="section-label reveal" style="justify-content:center">Get Started</div>
+                <h2 class="section-title reveal" style="text-align:center">Ready to <span>Get a Quote?</span></h2>
+                <p class="reveal"
+                        style="color:rgba(255,255,255,0.6);max-width:500px;margin:0 auto 2.5rem;font-weight:300;line-height:1.8">
+                        Tell us about your project and we'll get back to you with a competitive quote within 48 hours.
+                </p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal">
+                        <a href="quote.html" class="btn-primary"><i class="ti ti-file-invoice"></i> Get a Free Quote</a>
+                        <a href="contact.html" class="btn-outline"><i class="ti ti-phone"></i> Call 063 557 7581</a>
+                </div>
+        </section>
+
+        <footer>
+                <div class="footer-top">
+                        <div class="footer-brand"><span class="footer-logo">XIVIRI<small>Trading &amp; Projects (Pty)
+                                                Ltd</small></span>
+                                <p>A proudly South African construction and supply company based in Hluvukani,
+                                        Mpumalanga, serving clients across the region since 2016.</p>
+                                <div class="footer-socials"><a href="#" class="social-btn"><i
+                                                        class="ti ti-brand-facebook"></i></a><a href="#"
+                                                class="social-btn"><i class="ti ti-brand-whatsapp"></i></a><a href="#"
+                                                class="social-btn"><i class="ti ti-brand-instagram"></i></a><a href="#"
+                                                class="social-btn"><i class="ti ti-brand-linkedin"></i></a></div>
+                        </div>
+                        <div class="footer-col">
+                                <h4>Quick Links</h4>
+                                <ul>
+                                        <li><a href="index.html"><i class="ti ti-chevron-right"></i>Home</a></li>
+                                        <li><a href="about.html"><i class="ti ti-chevron-right"></i>About Us</a></li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Services</a></li>
+                                        <li><a href="projects.html"><i class="ti ti-chevron-right"></i>Projects</a></li>
+                                        <li><a href="contact.html"><i class="ti ti-chevron-right"></i>Contact</a></li>
+                                        <li><a href="privacy.html"><i class="ti ti-chevron-right"></i>Privacy Policy</a>
+                                        </li>
+                                </ul>
+                        </div>
+                        <div class="footer-col">
+                                <h4>Services</h4>
+                                <ul>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Earthworks</a>
+                                        </li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Sand &amp;
+                                                        Crusher</a></li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Bricks &amp;
+                                                        Blocks</a></li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Paving</a></li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Plant Hire</a>
+                                        </li>
+                                        <li><a href="services.html"><i class="ti ti-chevron-right"></i>Construction</a>
+                                        </li>
+                                </ul>
+                        </div>
+                        <div class="footer-col">
+                                <h4>Contact</h4>
+                                <div class="footer-contact-item"><i class="ti ti-phone"></i><span>063 557 7581</span>
+                                </div>
+                                <div class="footer-contact-item"><i
+                                                class="ti ti-mail"></i><span>info@xiviritrading.co.za</span></div>
+                                <div class="footer-contact-item"><i class="ti ti-map-pin"></i><span>Hluvukani,
+                                                Bushbuckridge<br>Mpumalanga, South Africa</span></div>
+                                <div class="footer-contact-item"><i class="ti ti-clock"></i><span>Mon–Fri:
+                                                07:00–17:00<br>Sat: 07:00–13:00</span></div>
+                        </div>
+                </div>
+                <div class="footer-bottom">
+                        <p>&copy; 2024 Xiviri Trading and Projects (Pty) Ltd. All rights reserved.</p>
+                        <div class="footer-bottom-links"><a href="privacy.html">Privacy Policy</a><a
+                                        href="quote.html">Get a Quote</a></div>
+                </div>
+        </footer>
+        <script>
+                window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50) });
+                const ham = document.getElementById('hamburger'), mob = document.getElementById('mobileMenu');
+                ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '' });
+                function closeMobile() { ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow = '' }
+                const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }) }, { threshold: 0.1 });
+                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+                document.querySelectorAll('.service-detail-card').forEach(card => { card.addEventListener('mousemove', e => { const r = card.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - 0.5; const y = (e.clientY - r.top) / r.height - 0.5; card.style.transform = `perspective(1200px) rotateX(${-y * 3}deg) rotateY(${x * 3}deg)` }); card.addEventListener('mouseleave', () => { card.style.transform = '' }) });
+        </script>
+</body>
+
+</html>
